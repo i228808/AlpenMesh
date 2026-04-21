@@ -1,0 +1,7 @@
+# Simulation requirements — extends production deps with SUMO + analysis tooling
+-r requirements.txt
+traci
+sumolib
+matplotlib
+pytest
+hypothesis

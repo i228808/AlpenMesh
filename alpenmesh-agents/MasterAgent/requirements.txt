@@ -1,0 +1,12 @@
+# Production / Docker requirements — no SUMO, no heavy sim tooling
+fastapi
+uvicorn[standard]
+pymongo
+requests
+pyyaml
+numpy
+redis
+prometheus-client
+structlog
+cvxpy
+pulp

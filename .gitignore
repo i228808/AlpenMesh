@@ -1,0 +1,28 @@
+# Monorepo-wide
+graphify-out/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+*.log
+.agent
+.cursor
+.opencode
+AGENTS.md
+opencode.json
+.graphify_detect.json

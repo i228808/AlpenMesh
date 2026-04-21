@@ -1,0 +1,63 @@
+corridors:
+  3rd_Ave:
+    street_name: 3rd Ave
+    axis: EW
+    cameras_ordered:
+    - 3rd Ave & Union St
+    - 3rd Ave & University St
+    - 3rd Ave & Seneca St
+    - 3rd Ave & Spring St
+    avg_block_distance_m: 105.4
+  Seneca_St:
+    street_name: Seneca St
+    axis: NS
+    cameras_ordered:
+    - 3rd Ave & Seneca St
+    - 6th Ave & Seneca St
+    avg_block_distance_m: 295.3
+  Spring_St:
+    street_name: Spring St
+    axis: EW
+    cameras_ordered:
+    - 2nd Ave & Spring St
+    - 3rd Ave & Spring St
+    - 5th Ave & Spring St
+    avg_block_distance_m: 146.6
+  University_St:
+    street_name: University St
+    axis: NS
+    cameras_ordered:
+    - 2nd Ave & University St
+    - 3rd Ave & University St
+    avg_block_distance_m: 98.2
+  5th_Ave:
+    street_name: 5th Ave
+    axis: EW
+    cameras_ordered:
+    - 5th Ave & Union St
+    - 5th Ave & Spring St
+    - 5th Ave & Madison St EW
+    - 5th Ave & Madison St NS
+    avg_block_distance_m: 136.5
+  Union_St:
+    street_name: Union St
+    axis: EW
+    cameras_ordered:
+    - 3rd Ave & Union St
+    - 5th Ave & Union St
+    avg_block_distance_m: 196.2
+  2nd_Ave:
+    street_name: 2nd Ave
+    axis: NS
+    cameras_ordered:
+    - 2nd Ave & Spring St
+    - 2nd Ave & University St
+    avg_block_distance_m: 192.2
+  Madison_St:
+    street_name: Madison St
+    axis: NS
+    cameras_ordered:
+    - 4th Ave & Madison St
+    - 5th Ave & Madison St EW
+    - 5th Ave & Madison St NS
+    avg_block_distance_m: 49.1

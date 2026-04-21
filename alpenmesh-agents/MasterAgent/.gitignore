@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+
+# Logs & debug output
+logs/
+*.log
+debug-*.log*
+
+# Runtime state
+.all_pids
+.master_pids
+*.pids
+.claude
+
+# Runtime output
+results/
+graphify-out/
+scripts/

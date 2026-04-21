@@ -1,0 +1,17 @@
+/target
+app.worker2.yaml
+*.py
+/debug
+.env
+eval_runs
+graphify-out
+*.json
+*.txt
+.graphify_python
+assets
+*.rs.bk
+/tools
+/assets
+/scripts
+.env.worker-a
+.env.worker-b

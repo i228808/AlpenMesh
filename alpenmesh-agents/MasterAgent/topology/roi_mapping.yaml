@@ -1,0 +1,53 @@
+# ROI name → canonical (approach, movement) mapping.
+# Seeded from camera_mapping.json; extend as EdgeAgent ROI names evolve.
+#
+# For cameras using the standard NB/SB/EB/WB naming convention,
+# the regex auto-resolver handles it — only non-standard names need entries here.
+
+mappings:
+  3rd_Ave__Seneca_St:
+    UP:    { approach: N, movement: through }
+    DOWN:  { approach: S, movement: through }
+
+  3rd_Ave__Spring_St:
+    UP:    { approach: N, movement: through }
+    DOWN:  { approach: S, movement: through }
+
+  3rd_Ave__University_St:
+    UP:    { approach: N, movement: through }
+    DOWN:  { approach: S, movement: through }
+
+  3rd_Ave__Union_St:
+    UP:    { approach: N, movement: through }
+    DOWN:  { approach: S, movement: through }
+
+  5th_Ave__Union_St:
+    DOWN:  { approach: S, movement: through }
+
+  5th_Ave__Spring_St:
+    UP:    { approach: N, movement: through }
+    DOWN:  { approach: S, movement: through }
+
+  5th_Ave__Madison_St_EW:
+    UP:    { approach: E, movement: through }
+    DOWN:  { approach: W, movement: through }
+
+  5th_Ave__Madison_St_NS:
+    DOWN:  { approach: S, movement: through }
+
+  2nd_Ave__Spring_St:
+    UP:    { approach: N, movement: through }
+    DOWN:  { approach: S, movement: through }
+
+  2nd_Ave__University_St:
+    UP:    { approach: N, movement: through }
+    DOWN:  { approach: S, movement: through }
+
+  4th_Ave__Madison_St:
+    UP:    { approach: N, movement: through }
+    DOWN:  { approach: S, movement: through }
+
+  6th_Ave__Seneca_St:
+    UP:    { approach: N, movement: through }
+    DOWN:  { approach: S, movement: through }
+    LEFT:  { approach: E, movement: left    }

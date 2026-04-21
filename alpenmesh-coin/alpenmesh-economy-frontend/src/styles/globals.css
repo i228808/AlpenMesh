@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design Tokens ─────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --bg: #090B0F;
+  --bg-subtle: #0D1017;
+  --surface: #111318;
+  --surface-raised: #181B22;
+  --border: #1E2028;
+  --border-subtle: #161820;
+  --text-primary: #F0EFE9;
+  --text-muted: #7B7D88;
+  --text-faint: #4A4C56;
+  --accent: #E8A844;
+  --accent-hover: #F0B855;
+  --accent-dim: rgba(232, 168, 68, 0.1);
+  --accent-border: rgba(232, 168, 68, 0.25);
+  --success: #22C55E;
+  --success-dim: rgba(34, 197, 94, 0.1);
+  --error: #EF4444;
+  --error-dim: rgba(239, 68, 68, 0.1);
+  --warning: #F59E0B;
+  --warning-dim: rgba(245, 158, 11, 0.1);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+}
+
+[data-theme="light"] {
+  /* Canvas — warm stone, clearly toned so surfaces lift above it */
+  --bg: #EDE8DE;
+  --bg-subtle: #E4DFD4;
+
+  /* Surfaces — cream cards float on the stone canvas */
+  --surface: #FAF8F2;
+  --surface-raised: #FFFFFF;
+
+  /* Borders — warm taupe, actually visible */
+  --border: #C8C0AE;
+  --border-subtle: #D6CFBF;
+
+  /* Type — warm-toned, not cold grey */
+  --text-primary: #1A1815;
+  --text-muted: #59544C;
+  --text-faint: #8C877E;
+
+  /* Accent — deep amber, WCAG AA on cream surfaces */
+  --accent: #A56808;
+  --accent-hover: #905B06;
+  --accent-dim: rgba(165, 104, 8, 0.1);
+  --accent-border: rgba(165, 104, 8, 0.28);
+
+  /* Semantic */
+  --success: #166534;
+  --success-dim: rgba(22, 101, 52, 0.1);
+  --error: #B91C1C;
+  --error-dim: rgba(185, 28, 28, 0.1);
+  --warning: #B45309;
+  --warning-dim: rgba(180, 83, 9, 0.1);
+
+  /* Shadows — subtle ring gives card definition without harsh borders */
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.07), 0 0 0 1px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.09), 0 0 0 1px rgba(0,0,0,0.04);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,0.13);
+}
+
+/* ─── Base ───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-faint);
+}
+
+/* ─── Selection ──────────────────────────────────────── */
+::selection {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+/* ─── Focus ──────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ─── Utilities ──────────────────────────────────────── */
+.text-primary { color: var(--text-primary); }
+.text-muted   { color: var(--text-muted); }
+.text-faint   { color: var(--text-faint); }
+.text-accent  { color: var(--accent); }
+
+.bg-base      { background-color: var(--bg); }
+.bg-surface   { background-color: var(--surface); }
+.bg-raised    { background-color: var(--surface-raised); }
+
+.border-default { border-color: var(--border); }
+.border-subtle  { border-color: var(--border-subtle); }
+
+/* ─── Typography ─────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-primary);
+}
+
+code, pre, .mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ─── Noise texture overlay (applied via pseudo where needed) */
+.noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+/* ─── Grid background pattern ────────────────────────── */
+.bg-grid {
+  background-image: linear-gradient(var(--border-subtle) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ─── Glow accents ───────────────────────────────────── */
+.glow-accent {
+  box-shadow: 0 0 40px var(--accent-dim), 0 0 80px var(--accent-dim);
+}

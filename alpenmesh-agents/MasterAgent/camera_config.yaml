@@ -1,0 +1,145 @@
+cameras:
+  2nd Ave & Spring St:
+    axis: NS
+    heading: 0
+    image_id: CMR-0415
+    image_url: https://www.seattle.gov/trafficcams/images/2_Spring.stream.jpg
+    lat: 47.60588105285818
+    lon: -122.33577113580122
+    needs_manual_check: true
+    paired_with: null
+    stream_url: https://61e0c5d388c2e.streamlock.net/live/2_Spring.stream/
+    sumo_x: 1295.9707337674918
+    sumo_y: 1125.6255556866527
+  2nd Ave & University St:
+    axis: NS
+    heading: 0
+    image_id: CMR-0069
+    image_url: http://www.seattle.gov/trafficcams/images/2_University_NS.jpg
+    lat: 47.60734665665254
+    lon: -122.33712825898787
+    needs_manual_check: false
+    paired_with: null
+    stream_url: https://61e0c5d388c2e.streamlock.net/live/2_University_NS.stream/
+    sumo_x: 1192.5756247416139
+    sumo_y: 1287.6366676567122
+  3rd Ave & Seneca St:
+    axis: EW
+    heading: 0
+    image_id: CMR-0191
+    image_url: http://www.seattle.gov/trafficcams/images/3_Seneca_EW.jpg
+    lat: 47.607084839855595
+    lon: -122.33532569945459
+    needs_manual_check: false
+    paired_with: null
+    stream_url: https://61e0c5d388c2e.streamlock.net/live/3_Seneca_EW.stream/
+    sumo_x: 1328.304100321373
+    sumo_y: 1259.6982095148414
+  3rd Ave & Spring St:
+    axis: EW
+    heading: 0
+    image_id: CMR-0305
+    image_url: http://www.seattle.gov/trafficcams/images/3_Spring_EW.jpg
+    lat: 47.60633735436131
+    lon: -122.33467152671994
+    needs_manual_check: false
+    paired_with: null
+    stream_url: https://61e0c5d388c2e.streamlock.net/live/3_Spring_EW.stream/
+    sumo_x: 1378.1839999995427
+    sumo_y: 1177.0459962030873
+  3rd Ave & Union St:
+    axis: EW
+    heading: 0
+    image_id: CMR-0304
+    image_url: http://www.seattle.gov/trafficcams/images/3_Union_EW.jpg
+    lat: 47.60875622459482
+    lon: -122.33688460340676
+    needs_manual_check: false
+    paired_with: null
+    stream_url: https://61e0c5d388c2e.streamlock.net/live/3_Union_EW.stream/
+    sumo_x: 1209.5495159614366
+    sumo_y: 1444.4491101829335
+  3rd Ave & University St:
+    axis: NS
+    heading: 0
+    image_id: CMR-0035
+    image_url: http://www.seattle.gov/trafficcams/images/3_University_NS.jpg
+    lat: 47.60776317694084
+    lon: -122.33597579395187
+    needs_manual_check: false
+    paired_with: null
+    stream_url: https://61e0c5d388c2e.streamlock.net/live/3_University_NS.stream/
+    sumo_x: 1278.7978886382189
+    sumo_y: 1334.6684892736375
+  4th Ave & Madison St:
+    axis: NS
+    heading: 0
+    image_id: CMR-0180
+    image_url: http://www.seattle.gov/trafficcams/images/4_Madison_NS.jpg
+    lat: 47.606087857465226
+    lon: -122.33290910388004
+    needs_manual_check: false
+    paired_with: null
+    stream_url: https://61e0c5d388c2e.streamlock.net/live/4_Madison_NS.stream/
+    sumo_x: 1510.8874999507098
+    sumo_y: 1150.4551003919914
+  5th Ave & Madison St EW:
+    axis: EW
+    heading: 90
+    image_id: CMR-0181
+    image_url: http://www.seattle.gov/trafficcams/images/5_Madison_EW.jpg
+    lat: 47.60655274573207
+    lon: -122.33179812302814
+    needs_manual_check: false
+    paired_with: 5th Ave & Madison St NS
+    stream_url: https://61e0c5d388c2e.streamlock.net/live/5_Madison_EW.stream/
+    sumo_x: 1593.9450513817137
+    sumo_y: 1202.8402623971924
+  5th Ave & Madison St NS:
+    axis: NS
+    heading: 0
+    image_id: CMR-0050
+    image_url: http://www.seattle.gov/trafficcams/images/5_Madison_NS.jpg
+    lat: 47.60655274573207
+    lon: -122.33179812302814
+    needs_manual_check: false
+    paired_with: 5th Ave & Madison St EW
+    stream_url: https://61e0c5d388c2e.streamlock.net/live/5_Madison_NS.stream/
+    sumo_x: 1593.9450513817137
+    sumo_y: 1202.8402623971924
+  5th Ave & Spring St:
+    axis: EW
+    heading: 0
+    image_id: CMR-0291
+    image_url: http://www.seattle.gov/trafficcams/images/5_Spring_EW.jpg
+    lat: 47.607266309863704
+    lon: -122.3324512813139
+    needs_manual_check: false
+    paired_with: null
+    stream_url: https://61e0c5d388c2e.streamlock.net/live/5_Spring_EW.stream/
+    sumo_x: 1544.1709623726783
+    sumo_y: 1281.7213730895892
+  5th Ave & Union St:
+    axis: EW
+    heading: 0
+    image_id: CMR-0255
+    image_url: http://www.seattle.gov/trafficcams/images/5_Union_EW.jpg
+    lat: 47.60968542083132
+    lon: -122.3346655975375
+    needs_manual_check: false
+    paired_with: null
+    stream_url: https://61e0c5d388c2e.streamlock.net/live/5_Union_EW.stream/
+    sumo_x: 1375.4383134209784
+    sumo_y: 1549.145718277432
+  6th Ave & Seneca St:
+    axis: NS
+    heading: 0
+    image_id: CMR-0188
+    image_url: http://www.seattle.gov/trafficcams/images/6_Seneca_NS.jpg
+    lat: 47.60848558480412
+    lon: -122.33198723153687
+    needs_manual_check: false
+    paired_with: null
+    stream_url: https://61e0c5d388c2e.streamlock.net/live/6_Seneca_NS.stream/
+    sumo_x: 1577.8818118976196
+    sumo_y: 1417.528820968233

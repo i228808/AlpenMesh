@@ -1,0 +1,115 @@
+version: "3.8"
+
+services:
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes", "--appendfsync", "everysec"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  master-api:
+    build:
+      context: ./MasterAgent
+      dockerfile: Dockerfile
+    command: ["python", "-m", "uvicorn", "services.api:app", "--host", "0.0.0.0", "--port", "8000"]
+    ports:
+      - "8000:8000"
+    depends_on:
+      redis:
+        condition: service_healthy
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      MONGO_URI: mongodb://host.docker.internal:27017/alpenmesh?replicaSet=rs0
+      REDIS_URL: redis://redis:6379/0
+      MASTER_AGENT_IMPL: hybrid
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  ingest-worker:
+    build:
+      context: ./MasterAgent
+      dockerfile: Dockerfile
+    command: ["python", "services/ingest_worker.py"]
+    depends_on:
+      redis:
+        condition: service_healthy
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      MONGO_URI: mongodb://host.docker.internal:27017/alpenmesh?replicaSet=rs0
+      REDIS_URL: redis://redis:6379/0
+      FEATURE_TTL_S: "30"
+      HISTORY_WINDOW_S: "600"
+
+  decision-worker:
+    build:
+      context: ./MasterAgent
+      dockerfile: Dockerfile
+    command: ["python", "services/decision_worker.py"]
+    depends_on:
+      redis:
+        condition: service_healthy
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      MONGO_URI: mongodb://host.docker.internal:27017/alpenmesh?replicaSet=rs0
+      REDIS_URL: redis://redis:6379/0
+      MASTER_AGENT_IMPL: hybrid
+
+  outcome-worker:
+    build:
+      context: ./MasterAgent
+      dockerfile: Dockerfile
+    command: ["python", "services/outcome_worker.py"]
+    depends_on:
+      redis:
+        condition: service_healthy
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      MONGO_URI: mongodb://host.docker.internal:27017/alpenmesh?replicaSet=rs0
+      REDIS_URL: redis://redis:6379/0
+      OUTCOME_DELAY_S: "45"
+
+  corridor-planner:
+    build:
+      context: ./MasterAgent
+      dockerfile: Dockerfile
+    command: ["python", "coordination/planner.py"]
+    depends_on:
+      redis:
+        condition: service_healthy
+    environment:
+      REDIS_URL: redis://redis:6379/0
+
+  reporting-agent:
+    build:
+      context: ./ReportingAgent
+      dockerfile: Dockerfile
+    command: ["python", "-m", "uvicorn", "reporting_agent:app", "--host", "0.0.0.0", "--port", "8001"]
+    ports:
+      - "8001:8001"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      MONGO_URI: mongodb://host.docker.internal:27017/alpenmesh?replicaSet=rs0
+      MASTER_AGENT_URL: http://master-api:8000
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8001/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  redis_data:
