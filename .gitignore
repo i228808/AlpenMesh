@@ -2,8 +2,6 @@
 graphify-out/
 
 # Environment
-.env
-.env.*
 !.env.example
 
 # OS
@@ -26,3 +24,5 @@ Thumbs.db
 AGENTS.md
 opencode.json
 .graphify_detect.json
+config.bat
+node_modules
